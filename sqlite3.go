@@ -1,6 +1,8 @@
 package sqlite3
 
 /*
+#cgo LDFLAGS: -lsqlite3
+
 #include <sqlite3.h>
 #include <stdlib.h>
 #include <string.h>
@@ -215,7 +217,8 @@ func (c *SQLiteConn) Begin() (driver.Tx, error) {
 }
 
 func errorString(err ErrNo) string {
-	return C.GoString(C.sqlite3_errstr(C.int(err)))
+//	return C.GoString(C.sqlite3_errstr(C.int(err)))
+	return ""
 }
 
 // Open database and return a new connection.
